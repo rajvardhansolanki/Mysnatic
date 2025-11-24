@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'FlickDemo';
+    src: url('../fonts/Flick-Demo-BF6582532893799.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --primary-color: #061054;
+    --accent-color: #0A1F9D;
+    --light-accent: #1E3A8A;
+    --text-light: #E0E7FF;
+    --text-white: #FFFFFF;
+    --gradient-1: linear-gradient(135deg, #061054 0%, #0A1F9D 100%);
+    --gradient-2: linear-gradient(45deg, #061054, #1E3A8A, #3B82F6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'FlickDemo', sans-serif;
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+    animation: float 20s infinite ease-in-out;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 7s;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    bottom: 10%;
+    left: 50%;
+    animation-delay: 14s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+
+    25% {
+        transform: translate(50px, -50px) scale(1.1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-30px, 30px) scale(0.9);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: translate(30px, 50px) scale(1.05);
+        opacity: 0.6;
+    }
+}
