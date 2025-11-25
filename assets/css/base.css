@@ -13,11 +13,14 @@
     --accent-color: #F86417;
     --soft-blue: #8EA2FF;
     --text-white: #F8FAFF;
+
     --gradient-main: linear-gradient(135deg, #061054 0%, #0B2ACF 60%, #1E40FF 100%);
     --gradient-menu: linear-gradient(180deg, #061054 0%, #0B2ACF 50%, #020A3F 100%);
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,7 +28,25 @@
 
 body {
     font-family: 'FlickDemo', sans-serif;
-    box-sizing: border-box;
+}
+
+.content {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease 0.2s both;
 }
 
 nav {
@@ -34,14 +55,14 @@ nav {
     left: 0;
     width: 100%;
     background: var(--gradient-main);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.625rem);
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -63,10 +84,7 @@ nav.scrolled .nav-container {
 
 .logo-img {
     width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 3.125rem;
     transition: transform 0.3s ease;
 }
 
@@ -75,8 +93,8 @@ nav.scrolled .nav-container {
 }
 
 .logo-text {
-    margin-left: 12px;
-    font-size: 24px;
+    margin-left: 0.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #333;
     transition: color 0.3s ease;
@@ -101,12 +119,11 @@ nav.scrolled .nav-container {
     text-decoration: none;
     color: var(--text-white);
     font-weight: 500;
-    font-size: 21px;
-    padding: 8px 16px;
-    transition: all 0.3s ease;
+    font-size: 1.3125rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.125rem;
     position: relative;
-    overflow: hidden;
-    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
 
 .nav-links a::before {
@@ -115,7 +132,7 @@ nav.scrolled .nav-container {
     bottom: 0;
     left: 40%;
     width: 0;
-    height: 2px;
+    height: 0.125rem;
     background: var(--accent-color);
     transform: translateX(-50%);
     transition: width 0.3s ease;
@@ -123,31 +140,37 @@ nav.scrolled .nav-container {
 
 .nav-links a:hover {
     color: var(--accent-color);
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }
 
 .nav-links a:hover::before {
     width: 80%;
 }
 
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
+    gap: 0.3125rem;
     cursor: pointer;
-    gap: 5px;
     z-index: 1001;
 }
 
 .hamburger span {
-    width: 28px;
-    height: 3px;
+    width: 1.75rem;
+    height: 0.1875rem;
     background: var(--accent-color);
-    border-radius: 3px;
+    border-radius: 0.1875rem;
     transition: all 0.3s ease;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(0.5rem, 0.5rem);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -155,33 +178,33 @@ nav.scrolled .nav-container {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
+    transform: rotate(-45deg) translate(0.5rem, -0.5rem);
 }
 
-.content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    color: white;
-    text-align: center;
+.login-btn {
+    display: inline-block;
+    padding: 0.65rem 1.8rem;
+    border-radius: 3.125rem;
+    background: var(--accent-color);
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 0.125rem solid var(--accent-color);
+    letter-spacing: 0.07rem;
+    transition: all 0.3s ease;
 }
 
-.content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 0.8s ease;
-}
-
-.content p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    animation: fadeInUp 0.8s ease 0.2s both;
+.login-btn:hover {
+    background: transparent;
+    color: var(--accent-color);
+    box-shadow: 0 0.5rem 1.5625rem rgba(248, 100, 23, 0.35);
 }
 
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-3.125rem);
     }
 
     to {
@@ -193,7 +216,7 @@ nav.scrolled .nav-container {
 @keyframes slideInRight {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(3.125rem);
     }
 
     to {
@@ -205,24 +228,11 @@ nav.scrolled .nav-container {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(1.875rem);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.contactus-btn {
-    display: flex;
-    justify-content: center;
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    padding: 0.8rem 2.8rem;
-    border-radius: 40px;
-    cursor: pointer;
-    letter-spacing: 2px;
-    transition: background-color 0.3s ease;
 }
