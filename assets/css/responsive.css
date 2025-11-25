@@ -48,6 +48,10 @@
     .content p {
         font-size: 1rem;
     }
+
+    .contactus-btn-container {
+        width: auto;
+    }
 }
 
 @media (max-width: 480px) {
