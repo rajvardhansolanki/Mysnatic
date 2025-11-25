@@ -8,12 +8,13 @@
 
 :root {
     --primary-color: #061054;
-    --accent-color: #0A1F9D;
-    --light-accent: #1E3A8A;
-    --text-light: #E0E7FF;
-    --text-white: #FFFFFF;
-    --gradient-1: linear-gradient(135deg, #061054 0%, #0A1F9D 100%);
-    --gradient-2: linear-gradient(45deg, #061054, #1E3A8A, #3B82F6);
+    --secondary-color: #0B2ACF;
+    --dark-blue: #020A3F;
+    --accent-color: #F86417;
+    --soft-blue: #8EA2FF;
+    --text-white: #F8FAFF;
+    --gradient-main: linear-gradient(135deg, #061054 0%, #0B2ACF 60%, #1E40FF 100%);
+    --gradient-menu: linear-gradient(180deg, #061054 0%, #0B2ACF 50%, #020A3F 100%);
 }
 
 * {
@@ -32,7 +33,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--gradient-1);
+    background: var(--gradient-main);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -90,7 +91,6 @@ nav.scrolled {
     list-style: none;
     gap: 2rem;
     animation: slideInRight 0.6s ease;
-    background: linear-gradient(360deg, #061054 0%, #0A1F9D 50%, #1E3A8A 100%);
 }
 
 .nav-links li {
@@ -99,7 +99,7 @@ nav.scrolled {
 
 .nav-links a {
     text-decoration: none;
-    color: white;
+    color: var(--text-white);
     font-weight: 500;
     font-size: 21px;
     padding: 8px 16px;
@@ -116,9 +116,14 @@ nav.scrolled {
     left: 40%;
     width: 0;
     height: 2px;
-    background: white;
+    background: var(--accent-color);
     transform: translateX(-50%);
     transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .nav-links a:hover::before {
@@ -136,7 +141,7 @@ nav.scrolled {
 .hamburger span {
     width: 28px;
     height: 3px;
-    background: white;
+    background: var(--accent-color);
     border-radius: 3px;
     transition: all 0.3s ease;
 }
